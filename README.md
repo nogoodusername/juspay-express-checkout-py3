@@ -11,24 +11,24 @@ The following package is required for this library to work properly.
 **NOTE**: If `pip` is not installed, install by downloading [get_pip.py](https://bootstrap.pypa.io/get-pip.py) and running the script in your terminal.
 
 #### Installation
-You can obtain the latest version of the library directly from python package repository. You don't need to checkout the code unless you need to make any changes to the code directly. If you think the change will help others too, please feel free raise a pull request.  
-
-Run the following command in your terminal:
+Build and install the package using following commands:
 
 ```bash
-pip install --upgrade juspay
+cd src
+python3 setup.py dist
+pip3 install juspay-1.1.2.tar.gz
 ```
 Simple example for using the library in your project:
 
 ```python
-import juspay as juspay
+import juspay as Juspay
 
 # lets configure the environment
-juspay.api_key = 'put_your_api_key_here'
-juspay.environment = 'production'
+Juspay.api_key = 'put_your_api_key_here'
+Juspay.environment = 'production'
 
 # lets create a new order object
-my_new_order = juspay.Orders.create(order_id='order_id_100',amount=100.00)
-print my_new_order
+my_new_order = Juspay.Orders.create(order_id='order_id_100',amount=100.00)
+print(my_new_order)
 ```
 For more information on the APIs and their usage, please refer to the [API documentation](https://www.juspay.in/docs/api/ec).
