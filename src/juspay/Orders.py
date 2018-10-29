@@ -156,7 +156,7 @@ class Orders:
         method = 'GET'
         url = '/order/list'
 
-        response = request(method, url, kwargs or {}).json()
+        response = util.request(method, url, kwargs or {}).json()
         returned_list = []
         for order in response['list']:
             order = Orders.Order(order)
