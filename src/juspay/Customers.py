@@ -1,6 +1,6 @@
-from . import util
 import sys
 
+from . import util
 from .JuspayException import InvalidArgumentException
 
 
@@ -38,14 +38,14 @@ class Customers:
     def list(**kwargs):
         method = 'GET'
         url = '/customers'
-        offset = util.get_arg(kwargs,'offset')
-        count = util.get_arg(kwargs,'count')
+        offset = util.get_arg(kwargs, 'offset')
+        count = util.get_arg(kwargs, 'count')
 
         if count is None and offset is None:
             sys.stderr.write('`count` & `offset` can be passed if required.\n')
 
         response = util.request(method, url, kwargs or {}).json()
-        response_list = util.get_arg(response,'list')
+        response_list = util.get_arg(response, 'list')
         customers_list = []
         customer_list_response = {}
         if response is not None:
@@ -62,10 +62,16 @@ class Customers:
 
     @staticmethod
     def get(**kwargs):
-        _id = util.get_arg(kwargs,'id')
+        _id = util.get_arg(kwargs, 'id')
+        _object_reference_id = util.get_arg(kwargs, 'object_reference_id')
 
         if _id is None:
-            raise InvalidArgumentException(message='`id` is a required argument for Customers.list()\n')
+            _id = _object_reference_id
+
+            if _id is None:
+                raise InvalidArgumentException(
+                    message='`id` or `object_reference_id` is a required argument for Customers.get()\n'
+                )
 
         method = 'GET'
         url = '/customers/%s' % _id
@@ -76,10 +82,15 @@ class Customers:
 
     @staticmethod
     def update(**kwargs):
-        _id = util.get_arg(kwargs,'id')
+        _id = util.get_arg(kwargs, 'id')
+        _object_reference_id = util.get_arg(kwargs, 'object_reference_id')
 
         if _id is None:
-            raise InvalidArgumentException(message='`id` is a required argument for Customers.update()\n')
+            _id = _object_reference_id
+            if _id is None:
+                raise InvalidArgumentException(
+                    message='`id` or `object_reference_id` is a required argument for Customers.update()\n'
+                )
 
         method = 'POST'
         url = '/customers/%s' % _id
