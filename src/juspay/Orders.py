@@ -126,6 +126,11 @@ class Orders:
             self.gateway_response = gateway_response
             self.refunds = refunds
             self.payment_links = Orders.Order.PaymentLink(kwargs['payment_links'])
+            self.client_auth_token_expiry = None
+            self.client_auth_token = None
+            if kwargs is not None and type(kwargs) is dict:
+                self.client_auth_token_expiry = kwargs.get('juspay', {}).get('client_auth_token_expiry')
+                self.client_auth_token = kwargs.get('juspay', {}).get('client_auth_token')
 
     @staticmethod
     def create(**kwargs):
@@ -135,7 +140,9 @@ class Orders:
 
         method = 'POST'
         url = '/order/create'
-        response = util.request(method, url, kwargs).json()
+
+        _api_version = kwargs.pop('api_version', None)
+        response = util.request(method, url, kwargs, _api_version).json()
         order = Orders.Order(response)
         return order
 
