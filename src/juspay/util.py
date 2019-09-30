@@ -20,7 +20,7 @@ def get_arg(kwargs, param):
         return None
 
 
-def request(method, url, parameters):
+def request(method, url, parameters, api_version=None):
     try:
         if juspay.environment == 'production':
             server = 'https://api.juspay.in'
@@ -29,7 +29,9 @@ def request(method, url, parameters):
         else:
             raise Exception("environment variable can only be 'production' or 'sandbox'")
         # Wrapper for requests
-        header = {'version': config.api_version,
+        if api_version is None:
+            api_version = config.api_version
+        header = {'version': api_version,
                   'User-Agent': 'Python SDK'}
         if method.upper() == 'GET':
             response = requests.get(server + url, headers=header, params=parameters, auth=(juspay.api_key, ''))
