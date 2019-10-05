@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='juspay',
-    version='1.1.2',
+    version='1.1.3',
     description='Python3 client for JusPay Express Checkout API',
     url='https://www.juspay.in ',
     author='JusPay',

@@ -16,7 +16,7 @@ Build and install the package using following commands:
 ```bash
 cd src
 python3 setup.py dist
-pip3 install juspay-1.1.2.tar.gz
+pip3 install juspay-1.1.3.tar.gz
 ```
 Simple example for using the library in your project:
 
