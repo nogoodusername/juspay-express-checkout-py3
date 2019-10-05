@@ -32,3 +32,7 @@ my_new_order = Juspay.Orders.create(order_id='order_id_100',amount=100.00)
 print(my_new_order)
 ```
 For more information on the APIs and their usage, please refer to the [API documentation](https://www.juspay.in/docs/api/ec).
+
+#### Versions
+ * 2016-10-27 - 1.1.2
+ * 2018-10-27 - 1.1.3
