@@ -140,9 +140,7 @@ class Orders:
 
         method = 'POST'
         url = '/order/create'
-
-        _api_version = kwargs.pop('api_version', None)
-        response = util.request(method, url, kwargs, _api_version).json()
+        response = util.request(method, url, kwargs).json()
         order = Orders.Order(response)
         return order
 
