@@ -125,7 +125,7 @@ class Orders:
             self.card = card
             self.gateway_response = gateway_response
             self.refunds = refunds
-            self.payment_links = Orders.Order.PaymentLink(kwargs['payment_links'])
+            self.payment_links = Orders.Order.PaymentLink(util.get_arg(kwargs, 'payment_links'))
             self.client_auth_token_expiry = None
             self.client_auth_token = None
             if kwargs is not None and type(kwargs) is dict:
