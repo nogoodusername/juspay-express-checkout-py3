@@ -13,7 +13,7 @@ class Payments:
         class Payment:
 
             def __init__(self, kwargs):
-                auth = Payments.Transaction.Payment.Authentication(get_arg(kwargs, 'authentication'))
+                auth = Payments.Transaction.Payment.Authentication(util.get_arg(kwargs, 'authentication'))
                 self.authentication = auth
 
             class Authentication:
