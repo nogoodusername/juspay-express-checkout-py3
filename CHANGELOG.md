@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.1.3] - 2019-10-05
+### Added
+- client_auth_token to Order
+
+### Changed
+- Updated API Version in config.py
+
 ## [1.1.2] - 2017-02-27
 ### Added
 - Added payment_method and payment_method_type in order class.
