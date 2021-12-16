@@ -13,7 +13,7 @@ class Payments:
         class Payment:
 
             def __init__(self, kwargs):
-                auth = Payments.Transaction.Payment.Authentication(get_arg(kwargs, 'authentication'))
+                auth = Payments.Transaction.Payment.Authentication(util.get_arg(kwargs, 'authentication'))
                 self.authentication = auth
 
             class Authentication:
@@ -81,6 +81,9 @@ class Payments:
             if key == 'redirect_after_payment':
                 if type(parameters['redirect_after_payment']) is not bool:
                     sys.stderr.write('redirect_after_payment should be of type bool\n')
+            if key == 'tokenize':
+                if type(parameters['tokenize']) is not bool:
+                    sys.stderr.write('tokenize should be of type bool\n')
 
         response = util.request(method, url, parameters).json()
         payment = Payments.Transaction(response)
