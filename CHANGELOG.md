@@ -1,9 +1,8 @@
 # Change Log
 
-## Unreleased
+## [1.1.4] - 2021-12-16
 - added coft token fields in cards list api
 - fixed order refund api
----
 
 ## [1.1.3] - 2019-10-05
 ### Added
