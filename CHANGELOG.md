@@ -1,5 +1,10 @@
 # Change Log
 
+## Unreleased
+- added coft token fields in cards list api
+- fixed order refund api
+---
+
 ## [1.1.3] - 2019-10-05
 ### Added
 - client_auth_token to Order

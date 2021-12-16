@@ -192,7 +192,7 @@ class Orders:
             raise InvalidArgumentException('`order_id` & `unique_request_id` is a required argument for Order.refund()\n')
 
         method = 'POST'
-        url = '/order/refund'
+        url = f'/orders/{order_id}/refunds'
         response = util.request(method, url, kwargs).json()
         order = Orders.Order(response)
         return order
