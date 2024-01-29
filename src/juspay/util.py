@@ -31,6 +31,8 @@ def request(method, url, parameters):
         # Wrapper for requests
         header = {'version': config.api_version,
                   'User-Agent': 'Python SDK'}
+        if juspay.merchant_id is not None:
+            header['x-merchantid'] = juspay.merchant_id
         if method.upper() == 'GET':
             response = requests.get(server + url, headers=header, params=parameters, auth=(juspay.api_key, ''))
         else:

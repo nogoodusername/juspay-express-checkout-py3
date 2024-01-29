@@ -8,3 +8,4 @@ from . import config
 
 api_key = ""
 environment = 'production'
+merchant_id = None

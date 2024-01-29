@@ -1,5 +1,8 @@
 # Change Log
 
+## [1.1.6] - 2024-01-25
+- added `Merchant ID` param for all the API calls 
+
 ## [1.1.5] - 2022-06-07
 - added `VPA` class to verify VPA
 
